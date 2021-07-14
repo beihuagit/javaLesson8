@@ -1,2 +1,19 @@
 # Project exclude paths
 /target/
+javaLesson8.iml
+
+.idea/.gitignore
+.idea/.name
+.idea/codeStyles/
+.idea/compiler.xml
+.idea/dictionaries/
+.idea/encodings.xml
+.idea/inspectionProfiles/
+.idea/jarRepositories.xml
+.idea/libraries/
+.idea/misc.xml
+.idea/modules.xml
+.idea/uiDesigner.xml
+.idea/vcs.xml
+out/
+
