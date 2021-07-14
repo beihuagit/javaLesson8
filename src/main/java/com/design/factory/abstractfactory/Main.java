@@ -1,6 +1,8 @@
 package com.design.factory.abstractfactory;
 
 /**
+ * 由抽象工厂类引申出一个思考：抽象类是否能够被实例化？答案是：抽象类是可以实例化的，只不过是通过子类实例化的
+ * 抽象类和接口：
  * @author 洛水晴川
  * @date 2021/7/13 22:02
  * */
