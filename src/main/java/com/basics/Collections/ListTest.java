@@ -1,7 +1,5 @@
 package com.basics.Collections;
 
-import lombok.Data;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +9,6 @@ import java.util.List;
  * @author xiaole.chen
  * @date 2020/11/16 18:22
  * */
-@Data
 public class ListTest {
 
     public static void main(String[] args) {
@@ -42,15 +39,15 @@ public class ListTest {
         List<User> list2 = new ArrayList<>();
         for(int i=0; i<11; i++) {
             User user = new User();
-            //user.setName(String.format("who%s", i));
-            //user.setAge(i);
-            //user.setStatus("0");
+            user.setName(String.format("who%s", i));
+            user.setAge(i);
+            user.setStatus("0");
             list2.add(user);
         }
         list.forEach(o -> list2.forEach(f -> {
-            //if(o.equals(f.getAge())){
-            //    f.setStatus("1");
-            //}
+            if(o.equals(f.getAge())){
+                f.setStatus("1");
+            }
         }));
         System.out.println(list2.toString());
         System.out.println("   1  3 ".trim().replaceAll("\\s", ""));

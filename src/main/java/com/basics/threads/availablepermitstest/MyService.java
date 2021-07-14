@@ -3,8 +3,8 @@ package com.basics.threads.availablepermitstest;
 import java.util.concurrent.Semaphore;
 
 /**
- * 获取实时可用许可数量
- * @author 洛水晴川
+ * 鑾峰彇瀹炴椂鍙敤璁稿彲鏁伴噺
+ * @author 娲涙按鏅村窛
  * @date 2021/6/2 15:40
  * */
 public class MyService {

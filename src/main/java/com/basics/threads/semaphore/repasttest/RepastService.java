@@ -5,15 +5,15 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Ê¹ÓÃSemaphore ÊµÏÖ¶àÉú²úÕß / ¶àÏû·ÑÕßÄ£Ê½ <br>
- *     ÎÒÃÇÓÃ³øÊ¦³´²ËºÍÏû·ÑÕßÓÃ²ÍÀ´Ä£ÄâÊµÏÖ¡£
- * @author ÂåË®Çç´¨
+ * ä½¿ç”¨Semaphore å®ç°å¤šç”Ÿäº§è€… / å¤šæ¶ˆè´¹è€…æ¨¡å¼ <br>
+ *     æˆ‘ä»¬ç”¨å¨å¸ˆç‚’èœå’Œæ¶ˆè´¹è€…ç”¨é¤æ¥æ¨¡æ‹Ÿå®ç°ã€‚
+ * @author æ´›æ°´æ™´å·
  * @date 2021/6/3 17:20
  * */
 public class RepastService {
-    /** ³øÊ¦ **/
+    /** å¨å¸ˆ **/
     volatile private Semaphore setSemaphore = new Semaphore(10);
-    /** ¾Í²ÍÕß **/
+    /** å°±é¤è€… **/
     volatile private Semaphore getSemaphore = new Semaphore(20);
     /** **/
     volatile private ReentrantLock lock = new ReentrantLock();
@@ -21,11 +21,11 @@ public class RepastService {
     volatile private Condition setCondition = lock.newCondition();
     /** **/
     volatile private Condition getCondition = lock.newCondition();
-    /** ´ú±í×î¶àÖ»ÓĞ4¸ö²ÍÅÌ´æ·Å²ËÆ· **/
+    /** ä»£è¡¨æœ€å¤šåªæœ‰4ä¸ªé¤ç›˜å­˜æ”¾èœå“ **/
     volatile private Object[] producePosition = new Object[4];
 
     /**
-     * ·ñÓĞ¿Õ²ËÅÌ
+     * å¦æœ‰ç©ºèœç›˜
      * @return
      */
     private boolean isEmpty() {
@@ -40,60 +40,60 @@ public class RepastService {
     }
 
     /**
-     * ³øÊ¦³´²Ë
+     * å¨å¸ˆç‚’èœ
      */
     public void set() {
         try {
             setSemaphore.acquire();
             lock.lock();
-            // Èç¹ûÅÌ×ÓÈ«×°ÂúÁË£¬ÔòµÈ´ıÈ¡²Í
+            // å¦‚æœç›˜å­å…¨è£…æ»¡äº†ï¼Œåˆ™ç­‰å¾…å–é¤
             while (!isEmpty()) {
                 setCondition.await();
             }
-            // Ò»µ©ÓĞ¿ÕÅÌÔòÁ¢¼´ÉÏ²Ë£¨×°ÈëÊı¾İ£©
+            // ä¸€æ—¦æœ‰ç©ºç›˜åˆ™ç«‹å³ä¸Šèœï¼ˆè£…å…¥æ•°æ®ï¼‰
             for (int i = 0; i < producePosition.length; i++) {
                 if (producePosition[i] == null) {
-                    //producePosition[i] = " ÅÌ×Ó[" + (i +1) + "]ÉÏĞÂ²ËÁË";
-                    producePosition[i] = " Êı¾İ" + (i + 1);
+                    //producePosition[i] = " ç›˜å­[" + (i +1) + "]ä¸Šæ–°èœäº†";
+                    producePosition[i] = " æ•°æ®" + (i + 1);
                     System.out.println(Thread.currentThread().getName()
-                       + " Éú²úÁË " + producePosition[i]);
+                            + " ç”Ÿäº§äº† " + producePosition[i]);
                     break;
                 }
             }
-            // Í¨Öª¾Í²ÍÕß£¬ÓĞĞÂµÄ²ËÆ·ÁË
+            // é€šçŸ¥å°±é¤è€…ï¼Œæœ‰æ–°çš„èœå“äº†
             getCondition.signalAll();
             lock.unlock();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
-            // ÊÍ·ÅĞí¿É
+            // é‡Šæ”¾è®¸å¯
             setSemaphore.release();
         }
     }
 
     /**
-     * ÓÃ²ÍÕßÓÃ²Í
+     * ç”¨é¤è€…ç”¨é¤
      */
     public void get() {
 
         try {
             getSemaphore.acquire();
             lock.lock();
-            // µ±ÓĞ²ÍÅÌÊÇ¿ÕµÄÊ±£¬ĞÂµÄÓÃ²ÍÕßĞëµÈ´ı
+            // å½“æœ‰é¤ç›˜æ˜¯ç©ºçš„æ—¶ï¼Œæ–°çš„ç”¨é¤è€…é¡»ç­‰å¾…
             while (isEmpty()) {
                 getCondition.await();
             }
-            // Ò»µ©²ÍÅÌÊÇÂúµÄÊ±£¬ÓÃ²ÍÕß¿ÉÒÔÁ¢¼´ÓÃ²Í
+            // ä¸€æ—¦é¤ç›˜æ˜¯æ»¡çš„æ—¶ï¼Œç”¨é¤è€…å¯ä»¥ç«‹å³ç”¨é¤
             for (int i = 0; i < producePosition.length; i++) {
                 if (producePosition[i] != null) {
                     System.out.println(Thread.currentThread().getName()
-                       + " Ïû·ÑÁË " + producePosition[i]);
-                    // Çå¿Õ¼´´ú±íÏû·ÑÁË
+                            + " æ¶ˆè´¹äº† " + producePosition[i]);
+                    // æ¸…ç©ºå³ä»£è¡¨æ¶ˆè´¹äº†
                     producePosition[i] = null;
                     break;
                 }
             }
-            // Í¨ÖªÉú²úÕß£¬ÒÑ¾­¿ÉÒÔÉú²úĞÂµÄ²ËÆ·ÁË
+            // é€šçŸ¥ç”Ÿäº§è€…ï¼Œå·²ç»å¯ä»¥ç”Ÿäº§æ–°çš„èœå“äº†
             setCondition.signalAll();
             lock.unlock();
         } catch (InterruptedException e) {

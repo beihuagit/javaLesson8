@@ -3,8 +3,8 @@ package com.basics.threads.drainpermitstest;
 import java.util.concurrent.Semaphore;
 
 /**
- * 获取并返回立即可用的所有许可个数，并将可用许可清零
- * @author 洛水晴川
+ * 鑾峰彇骞惰繑鍥炵珛鍗冲彲鐢ㄧ殑鎵�鏈夎鍙釜鏁帮紝骞跺皢鍙敤璁稿彲娓呴浂
+ * @author 娲涙按鏅村窛
  * @date 2021/6/2 15:40
  * */
 public class MyService {
@@ -13,7 +13,7 @@ public class MyService {
 
     public void test() {
         try {
-            // drainPermits 返回可用许可的个数，并将可用许可清零
+            // drainPermits 杩斿洖鍙敤璁稿彲鐨勪釜鏁帮紝骞跺皢鍙敤璁稿彲娓呴浂
             semaphore.acquire();
             System.out.println(semaphore.availablePermits());
             System.out.println(semaphore.drainPermits() + " " + semaphore.availablePermits());

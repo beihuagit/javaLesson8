@@ -1,8 +1,8 @@
 package com.basics.threads.semaphore.repasttest;
 
 /**
- * Éú²úÕß£¨³øÊ¦£©
- * @author ÂåË®Çç´¨
+ * ç”Ÿäº§è€…ï¼ˆå¨å¸ˆï¼‰
+ * @author æ´›æ°´æ™´å·
  * @date 2021/6/3 17:59
  * */
 public class ThreadProducer extends Thread {

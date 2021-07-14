@@ -1,8 +1,8 @@
 package com.basics.threads.semaphore.repasttest;
 
 /**
- * 用餐者（消费者）
- * @author 洛水晴川
+ * 鐢ㄩ鑰咃紙娑堣垂鑰咃級
+ * @author 娲涙按鏅村窛
  * @date 2021/6/3 17:56
  * */
 public class ThreadConsumer extends Thread {

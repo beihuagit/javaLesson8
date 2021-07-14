@@ -1,7 +1,7 @@
 package com.basics.threads.semaphore;
 
 /**
- * @author ��ˮ�紨
+ * @author 洛水晴川
  * @date 2021/6/2 14:20
  * */
 public class ThreadC extends Thread {
