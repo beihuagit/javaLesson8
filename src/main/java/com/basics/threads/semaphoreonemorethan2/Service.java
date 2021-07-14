@@ -4,35 +4,35 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * ¶à½øÂ· - µ¥´¦Àí£¨×èÈûÒµÎñ£© - ¶à³öÂ·
- * ¶à¸öÏß³Ì£¬¶à¸öĞÅºÅÁ¿£¬Ä£·Â¶àÏß³ÌÍ¬²½Ö´ĞĞ£¬Ã¿¸öÏß³ÌÍ¬Ê±Ö´ĞĞ×Ô¼ºµÄÈÎÎñ
- * @author ÂåË®Çç´¨
+ * å¤šè¿›è·¯ - å•å¤„ç†ï¼ˆé˜»å¡ä¸šåŠ¡ï¼‰ - å¤šå‡ºè·¯
+ * å¤šä¸ªçº¿ç¨‹ï¼Œå¤šä¸ªä¿¡å·é‡ï¼Œæ¨¡ä»¿å¤šçº¿ç¨‹åŒæ­¥æ‰§è¡Œï¼Œæ¯ä¸ªçº¿ç¨‹åŒæ—¶æ‰§è¡Œè‡ªå·±çš„ä»»åŠ¡
+ * @author æ´›æ°´æ™´å·
  * @date 2021/6/2 16:50
  * */
 public class Service {
 
     private final Semaphore semaphore = new Semaphore(3);
-    /**Ôö¼Ó**/
+    /**å¢åŠ **/
     private ReentrantLock lock = new ReentrantLock();
 
     public void sayHello() {
         try {
             semaphore.acquire();
             System.out.println("ThreadName=" + Thread.currentThread().getName()
-               + " ×¼±¸£¡");
+                    + " å‡†å¤‡ï¼");
             lock.lock();
-            // ¼ÓÈëlock : ×èÈû×´Ì¬
+            // åŠ å…¥lock : é˜»å¡çŠ¶æ€
             System.out.println("begin hello " + System.currentTimeMillis());
             for (int i = 0; i < 5; i++) {
                 System.out.println(Thread.currentThread().getName()
-                        + "´òÓ¡ " + (i + 1));
+                        + "æ‰“å° " + (i + 1));
             }
             System.out.println("end hello " + System.currentTimeMillis());
             lock.unlock();
 
             semaphore.release();
             System.out.println("ThreadName=" + Thread.currentThread().getName()
-               + " ½áÊø£¡");
+                    + " ç»“æŸï¼");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

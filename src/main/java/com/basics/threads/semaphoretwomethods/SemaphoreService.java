@@ -3,13 +3,13 @@ package com.basics.threads.semaphoretwomethods;
 import java.util.concurrent.Semaphore;
 
 /**
- * @author ÂåË®Çç´¨
+ * @author æ´›æ°´æ™´å·
  * @date 2021/6/2 14:13
  * */
 public class SemaphoreService {
 
     /**
-     * ²ÎÊıpermitsµÄº¬Òå£ºÍ¬Ò»Ê±¼ä×î¶àÖ»ÓĞX¸öÏß³Ì¿ÉÒÔÖ´ĞĞacquireºÍreleaseÖ®¼äµÄ´úÂë
+     * å‚æ•°permitsçš„å«ä¹‰ï¼šåŒä¸€æ—¶é—´æœ€å¤šåªæœ‰Xä¸ªçº¿ç¨‹å¯ä»¥æ‰§è¡Œacquireå’Œreleaseä¹‹é—´çš„ä»£ç 
      */
     private final Semaphore semaphore = new Semaphore(1);
 
@@ -17,8 +17,8 @@ public class SemaphoreService {
         try {
             semaphore.acquire();
             Thread.sleep(1000);
-            System.out.println(" »¹ÓĞ´óÔ¼ : " + semaphore.getQueueLength() + " ¸öÏß³ÌÔÚµÈ´ı");
-            System.out.println(" ÊÇ·ñÓĞÏß³ÌÕıÔÚµÈ´ıĞÅºÅÁ¿ÄØ£¿" + semaphore.hasQueuedThreads());
+            System.out.println(" è¿˜æœ‰å¤§çº¦ : " + semaphore.getQueueLength() + " ä¸ªçº¿ç¨‹åœ¨ç­‰å¾…");
+            System.out.println(" æ˜¯å¦æœ‰çº¿ç¨‹æ­£åœ¨ç­‰å¾…ä¿¡å·é‡å‘¢ï¼Ÿ" + semaphore.hasQueuedThreads());
             semaphore.release();
         } catch (InterruptedException e) {
             e.printStackTrace();

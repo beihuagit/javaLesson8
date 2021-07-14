@@ -3,8 +3,8 @@ package com.basics.threads.semaphoretryacquire;
 import java.util.concurrent.Semaphore;
 
 /**
- * tryAcquire Ê¹Ïß³Ì·Ç×èÈûµØÖ´ĞĞ³ÌĞò£¬²»ÖÁÓÚÔÚÍ¬²½´¦Ò»Ö±µÈ´ı
- * @author ÂåË®Çç´¨
+ * tryAcquire ä½¿çº¿ç¨‹éé˜»å¡åœ°æ‰§è¡Œç¨‹åºï¼Œä¸è‡³äºåœ¨åŒæ­¥å¤„ä¸€ç›´ç­‰å¾…
+ * @author æ´›æ°´æ™´å·
  * @date 2021/6/2 16:03
  * */
 public class MyService {
@@ -14,7 +14,7 @@ public class MyService {
     public void test() {
         if (semaphore.tryAcquire()) {
             System.out.println("ThreadName=" + Thread.currentThread().getName()
-            + "Ê×ÏÈ½øÈë£¡");
+                    + "é¦–å…ˆè¿›å…¥ï¼");
             for (int i = 0; i < Integer.MAX_VALUE; i++) {
                 String newString = new String();
                 Math.random();
@@ -22,7 +22,7 @@ public class MyService {
             semaphore.release();
         } else {
             System.out.println("ThreadName=" + Thread.currentThread().getName()
-               + "Î´³É¹¦½øÈë£¡");
+                    + "æœªæˆåŠŸè¿›å…¥ï¼");
         }
     }
 }

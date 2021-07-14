@@ -4,9 +4,9 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 /**
- * tryAcquire Ê¹Ïß³Ì·Ç×èÈûµØÖ´ĞĞ³ÌĞò£¬²»ÖÁÓÚÔÚÍ¬²½´¦Ò»Ö±µÈ´ı
- * ²ÎÊı¿ÉÒÔÖ¸¶¨Ê±¼äÄÚ»ñÈ¡Ğí¿É
- * @author ÂåË®Çç´¨
+ * tryAcquire ä½¿çº¿ç¨‹éé˜»å¡åœ°æ‰§è¡Œç¨‹åºï¼Œä¸è‡³äºåœ¨åŒæ­¥å¤„ä¸€ç›´ç­‰å¾…
+ * å‚æ•°å¯ä»¥æŒ‡å®šæ—¶é—´å†…è·å–è®¸å¯
+ * @author æ´›æ°´æ™´å·
  * @date 2021/6/2 16:03
  * */
 public class MyService {
@@ -17,13 +17,13 @@ public class MyService {
         try {
             if (semaphore.tryAcquire(3, TimeUnit.SECONDS)) {
                 System.out.println("ThreadName=" + Thread.currentThread().getName()
-                + "Ê×ÏÈ½øÈë£¡");
-                // ¸ü¸Ä´ËÊ±¼ä£¬¿´½á¹ûÓĞÊ²Ã´²»Í¬
+                        + "é¦–å…ˆè¿›å…¥ï¼");
+                // æ›´æ”¹æ­¤æ—¶é—´ï¼Œçœ‹ç»“æœæœ‰ä»€ä¹ˆä¸åŒ
                 Thread.sleep(5000);
                 semaphore.release();
             } else {
                 System.out.println("ThreadName=" + Thread.currentThread().getName()
-                   + "Î´³É¹¦½øÈë£¡");
+                        + "æœªæˆåŠŸè¿›å…¥ï¼");
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

@@ -3,7 +3,7 @@ package com.basics.threads;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * @author xiaole.chen Ô­Ôò
+ * @author xiaole.chen åŸåˆ™
  * @date 2020/12/29 12:18
  * */
 public class Concurrent01 {

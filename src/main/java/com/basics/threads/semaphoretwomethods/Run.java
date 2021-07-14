@@ -1,8 +1,8 @@
 package com.basics.threads.semaphoretwomethods;
 
 /**
- * 信号量的两个方法
- * @author 洛水晴川
+ * 淇″彿閲忕殑涓や釜鏂规硶
+ * @author 娲涙按鏅村窛
  * @date 2021/6/2 15:53
  * */
 public class Run {

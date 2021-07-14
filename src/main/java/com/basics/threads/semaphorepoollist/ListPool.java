@@ -7,8 +7,8 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 使用Semaphore创建字符串池
- * @author 洛水晴川
+ * 浣跨敤Semaphore鍒涘缓瀛楃涓叉睜
+ * @author 娲涙按鏅村窛
  * @date 2021/6/3 16:37
  * */
 public class ListPool {
@@ -23,7 +23,7 @@ public class ListPool {
     public ListPool() {
         super();
         for (int i = 0; i < poolMaxSize; i++) {
-            list.add(" 洛水晴川 " + i);
+            list.add(" 娲涙按鏅村窛 " + i);
         }
     }
 

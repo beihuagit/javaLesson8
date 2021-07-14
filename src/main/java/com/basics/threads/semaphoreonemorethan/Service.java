@@ -3,9 +3,9 @@ package com.basics.threads.semaphoreonemorethan;
 import java.util.concurrent.Semaphore;
 
 /**
- * ¶à½øÂ· - ¶à´¦Àí - ¶à³öÂ·
- * ¶à¸öÏß³Ì£¬¶à¸öĞÅºÅÁ¿£¬Ä£·Â¶àÏß³ÌÍ¬²½Ö´ĞĞ£¬Ã¿¸öÏß³ÌÍ¬Ê±Ö´ĞĞ×Ô¼ºµÄÈÎÎñ
- * @author ÂåË®Çç´¨
+ * å¤šè¿›è·¯ - å¤šå¤„ç† - å¤šå‡ºè·¯
+ * å¤šä¸ªçº¿ç¨‹ï¼Œå¤šä¸ªä¿¡å·é‡ï¼Œæ¨¡ä»¿å¤šçº¿ç¨‹åŒæ­¥æ‰§è¡Œï¼Œæ¯ä¸ªçº¿ç¨‹åŒæ—¶æ‰§è¡Œè‡ªå·±çš„ä»»åŠ¡
+ * @author æ´›æ°´æ™´å·
  * @date 2021/6/2 16:50
  * */
 public class Service {
@@ -16,16 +16,16 @@ public class Service {
         try {
             semaphore.acquire();
             System.out.println("ThreadName=" + Thread.currentThread().getName()
-               + " ×¼±¸£¡");
+                    + " å‡†å¤‡ï¼");
             System.out.println("begin hello " + System.currentTimeMillis());
             for (int i = 0; i < 5; i++) {
                 System.out.println(Thread.currentThread().getName()
-                        + "´òÓ¡ " + (i + 1));
+                        + "æ‰“å° " + (i + 1));
             }
             System.out.println("end hello " + System.currentTimeMillis());
             semaphore.release();
             System.out.println("ThreadName=" + Thread.currentThread().getName()
-               + " ½áÊø£¡");
+                    + " ç»“æŸï¼");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

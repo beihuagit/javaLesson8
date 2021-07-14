@@ -1,7 +1,7 @@
 package com.basics.threads.semaphorepoollist;
 
 /**
- * @author ��ˮ�紨
+ * @author 洛水晴川
  * @date 2021/6/3 16:53
  * */
 public class Run {

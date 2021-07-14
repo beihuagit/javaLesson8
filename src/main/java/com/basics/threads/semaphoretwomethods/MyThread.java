@@ -1,7 +1,7 @@
 package com.basics.threads.semaphoretwomethods;
 
 /**
- * @author ��ˮ�紨
+ * @author 洛水晴川
  * @date 2021/6/2 15:55
  * */
 public class MyThread extends Thread {

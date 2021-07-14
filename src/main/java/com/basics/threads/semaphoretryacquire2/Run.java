@@ -1,7 +1,7 @@
 package com.basics.threads.semaphoretryacquire2;
 
 /**
- * @author ��ˮ�紨
+ * @author 洛水晴川
  * @date 2021/6/2 16:25
  * */
 public class Run {
