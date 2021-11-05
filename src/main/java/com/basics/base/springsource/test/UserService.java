@@ -21,6 +21,7 @@ public class UserService implements InitializeBean {
         System.out.println(orderService);
         System.out.println(defaultUser);
         System.out.println(defaultUser.getUsername());
+        System.out.println(defaultUser.getAge());
     }
 
     /**
@@ -29,7 +30,7 @@ public class UserService implements InitializeBean {
     @Override
     public void afterPropertiesSet() {
         defaultUser = new User();
-        defaultUser.setUsername("洛水晴川");
+        defaultUser.setUsername("afterPropertiesSet()");
         defaultUser.setAge(26);
     }
 }

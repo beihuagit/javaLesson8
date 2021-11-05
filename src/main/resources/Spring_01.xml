@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="userEntity" class="com.spring5.entity.UserEntity" init-method="init" destroy-method="destroy">
+        <property name="userName" value="xiaole_chen"/>
+        <property name="age" value="30"/>
+        <property name="address" value="Shenzhen"/>
+        <property name="deptEntity" ref="deptEntity"/>
+    </bean>
+
+    <bean name="deptEntity" class="com.spring5.entity.DeptEntity">
+        <property name="deptId" value="1001"/>
+        <property name="deptName" value="研发部"/>
+    </bean>
+
+    <!--注册bean对象: 后置处理器-->
+    <bean id="userEntityPostProcessor" class="com.spring5.bean.UserEntityPostProcessor"/>
+    <bean id="userEntityPostProcessor2" class="com.spring5.bean.UserEntityPostProcessor02"/>
+</beans>

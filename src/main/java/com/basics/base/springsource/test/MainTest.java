@@ -1,6 +1,7 @@
 package com.basics.base.springsource.test;
 
-import java.awt.*;
+import com.basics.base.springsource.AppConfig;
+import com.basics.base.springsource.XiaoleApplicationContext;
 
 /**
  * 手写Spring容器
@@ -11,16 +12,16 @@ public class MainTest {
 
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 
-        //XiaoleApplicationContext appContext = new XiaoleApplicationContext(AppConfig.class);
+        XiaoleApplicationContext appContext = new XiaoleApplicationContext(AppConfig.class);
         //UserService userService = (UserService) appContext.getBean("userService");
-        //System.out.println(appContext.getBean("userService"));
-        //System.out.println(appContext.getBean("userService"));
-        //System.out.println(appContext.getBean("userService"));
-        //UserService userService = (UserService) appContext.getBean("userService");
-        // 测试依赖注入
-        //userService.test();
+        System.out.println(appContext.getBean("userService"));
+        System.out.println(appContext.getBean("userService"));
+        System.out.println(appContext.getBean("userService"));
+        UserService userService = (UserService) appContext.getBean("userService");
+         //测试依赖注入
+        userService.test();
+        OrderService orderService = (OrderService) appContext.getBean("orderService");
+        orderService.test();
 
-        Image im[] = new Image[4];
-        System.out.println(im[0].toString());
     }
 }

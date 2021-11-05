@@ -3,7 +3,7 @@ package com.design.factory.multiplefactory;
 import com.design.factory.*;
 
 /**
- * 多工厂模式测试
+ * 多工厂模式测试：每一个类别建立一个工厂
  * @author 洛水晴川
  * @date 2021/7/13 17:36
  * */

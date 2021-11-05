@@ -8,4 +8,12 @@ package com.basics.lambda;
 public interface MyPredicate<T> {
 
     boolean test(T t) ;
+
+    default boolean test(){
+        return false;
+    }
+
+    static int add(int a) {
+        return a;
+    }
 }

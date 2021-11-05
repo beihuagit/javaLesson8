@@ -12,11 +12,11 @@ public class BulbbleSort {
     public static void main(String[] args) {
         int[] nums = {8, 9, 7, 4, 5, 6, 1, 2, 3};
         // 让第i个数和后面的数比较，如果后面的数比较小，则与i换位置
+        int temp;
         for (int i = 0; i < nums.length - 1; i++) {
-            boolean swapped = false;
             for (int j = 0; j < nums.length - i - 1; j++) {
                 if (nums[j] > nums[j + 1]) {
-                    int temp = nums[j];
+                    temp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = temp;
                 }

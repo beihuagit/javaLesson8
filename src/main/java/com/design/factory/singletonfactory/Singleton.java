@@ -1,7 +1,7 @@
 package com.design.factory.singletonfactory;
 
 /**
- * 单例类（任意类）
+ * 工厂模式实现的单例类
  * @author 洛水晴川
  * @date 2021/7/13 17:49
  * */

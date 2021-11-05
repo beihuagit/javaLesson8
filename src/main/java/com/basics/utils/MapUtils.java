@@ -1,6 +1,5 @@
 package com.basics.utils;
 
-import org.apache.http.client.utils.DateUtils;
 
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
@@ -93,7 +92,7 @@ public class MapUtils {
                 || double.class.getName().equals(fieldTypeClass.getName())) {
             retVal = Double.parseDouble(value.toString());
         } else if(Date.class.getName().equals(fieldTypeClass.getName())){
-            retVal = DateUtils.parseDate(value.toString());
+            //retVal = DateUtils.parseDate(value.toString());
         } else if(BigDecimal.class.getName().equals(fieldTypeClass.getName())){
             retVal = new BigDecimal(value.toString());
         }else {

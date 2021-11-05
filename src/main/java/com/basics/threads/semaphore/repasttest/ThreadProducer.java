@@ -7,7 +7,7 @@ package com.basics.threads.semaphore.repasttest;
  * */
 public class ThreadProducer extends Thread {
 
-    private RepastService repastService;
+    private final RepastService repastService;
 
     public ThreadProducer(RepastService repastService) {
         super();

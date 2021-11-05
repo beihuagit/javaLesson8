@@ -1,6 +1,6 @@
 package com.basics.base.encoding;
 
-import org.apache.commons.codec.binary.Base64;
+import org.apache.tomcat.util.codec.binary.Base64;
 
 import javax.crypto.Cipher;
 import java.io.ByteArrayOutputStream;

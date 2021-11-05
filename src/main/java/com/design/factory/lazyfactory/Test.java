@@ -26,6 +26,12 @@ public class Test {
             System.out.println("----产生一批绿色人----" + green);
             green.getColor();
             green.talk();
+            MyThread[] threads = new MyThread[8];
+            for (int i = 0; i < threads.length; i++) {
+                threads[i] = new MyThread(i);
+                Human human = threads[i].call();
+                System.out.println("批量生产人类：" + human);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

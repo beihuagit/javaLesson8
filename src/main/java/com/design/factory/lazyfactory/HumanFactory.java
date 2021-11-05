@@ -12,21 +12,21 @@ import java.util.Map;
  * @date 2021/7/13 17:59
  * */
 public class HumanFactory {
-    private static final Map<String, Human> hMap = new HashMap<>();
+    private static final Map<String, Human> H_MAP = new HashMap<>();
 
     public static synchronized Human createHuman(String color) throws IllegalAccessException, InstantiationException {
         Human human;
-        if (hMap.containsKey(color)) {
-            human = hMap.get(color);
+        if (H_MAP.containsKey(color)) {
+            human = H_MAP.get(color);
         } else {
-            Class c = HumanTypeConstans.human.get(color);
+            Class<?> c = HumanTypeConstans.human.get(color);
             if (c != null) {
                 human = HumanTypeConstans.human.get(color).newInstance();
                 // 放入缓存容器中
-                hMap.put(color, human);
+                H_MAP.put(color, human);
             } else {
                 // 默认生成黄种人(从缓存取值，不再重新生成对象)
-                human = hMap.get("yellow");
+                human = H_MAP.get("yellow");
             }
         }
         return human;

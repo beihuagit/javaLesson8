@@ -30,7 +30,7 @@ public class FunctionTest {
         // 1.消费型
         Consumer<String> res = System.out::println;
         res.accept("消费型函数：");
-        happy(1000.00, (m) -> System.out.println("小张去游泳消费：" + m));
+        happy(1000.00, (m) -> System.out.println("小张去游泳消费：" + m + "￥"));
         // 2.供给型
         /*List<Integer> list = getNumberList(10, () -> (int)(Math.random() * 100));
         list.forEach(n -> {

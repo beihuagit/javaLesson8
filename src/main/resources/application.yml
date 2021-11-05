@@ -1,0 +1,99 @@
+server:
+  port: 9020
+spring:
+#  profiles:
+#    active: dev
+  application:
+    name: javaLesson8
+  banner:
+    charset: UTF-8
+  mvc:
+    throw-exception-if-no-handler-found: true
+    static-path-pattern: /static/**
+#  freemarker:
+#    request-context-attribute: request
+#    suffix: .ftl
+#    content-type: text/html
+#    enabled: true
+#    cache: false
+#    charset: UTF-8
+#    allow-request-override: false
+#    expose-request-attributes: true
+#    expose-session-attributes: true
+#    expose-spring-macro-helpers: true
+#    settings:
+#      number_format: 0.##
+#      default_encoding: UTF-8
+#    template-loader-path: classpath:/templates/
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+  #邮箱设置
+  mail:
+    host: smtp.qiye.163.com
+    username: 9h_sc@9hjf.com
+    password: 9HUIjinfu
+    properties.mail.smtp.port: 994
+    properties.mail.smtp.starttls.enable: true
+    properties.mail.smtp.starttls.required: true
+    properties.mail.smtp.ssl.enable: true
+    default-encoding: utf-8
+    from: 9h_sc@9hjf.com
+    personal: GDS-9HDTA
+  # 视图解析
+  thymeleaf:
+    cache: false
+    mode: HTML5
+    encoding: UTF-8
+  # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.68.135:3306/SpringSecurity?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root123456
+#mybatis配置
+mybatis:
+  mapper-locations: classpath*:orm/*.xml
+
+# 日志有关配置
+logging:
+    file:
+        name: javaLesson8
+        path: /logs/
+    level:
+        org:
+            springframework:
+                boot:
+                    autoconfigure: ERROR
+    pattern:
+        level: debug
+
+  kaptcha:
+    height: 50
+    width: 200
+    content:
+      length: 4
+      source: abcdefghjklmnopqrstuvwxyz23456789
+      space: 2
+    font:
+      color: blue
+      name: Arial
+      size: 40
+    background-color:
+      from: white
+      to: white
+    border:
+      enabled: false
+#    color: green
+#    thickness: 1
+
+## 分页插件配置
+#pagehelper:
+#  helperDialect: mysql
+#  reasonable: true
+#  supportMethodsArguments: true
+#  params: count=countSql
+
+#context:
+#  listener:
+#    classes: com.bigdata.service.evt.TestEventListener3

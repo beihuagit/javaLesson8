@@ -17,7 +17,10 @@ import java.util.stream.Collectors;
 public class LambdaTest {
 
 
-    List<Employee> list = new ArrayList<Employee>(){{
+    List<Employee> list = new ArrayList<Employee>(){
+        private static final long serialVersionUID = -5485564376907209338L;
+
+        {
         add(new Employee("张三", "深圳", 28 , "市场部", 8000L));
         add(new Employee("李丽", "深圳", 28 , "市场部", 8000L));
         add(new Employee("王燕", "深圳", 26 , "市场部", 7000L));

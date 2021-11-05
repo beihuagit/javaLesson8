@@ -6,7 +6,7 @@ package com.basics.threads.semaphore;
  * */
 public class ThreadA extends Thread {
 
-    private SemaphoreService service;
+    private final SemaphoreService service;
     public ThreadA(SemaphoreService service) {
         super();
         this.service = service;

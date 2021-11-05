@@ -68,5 +68,7 @@ public class MainTest {
         double dt = 12.5;
         BigDecimal bd2 = bd.divide(new BigDecimal(12.56));
         System.out.println(bd2);
+
+
     }
 }

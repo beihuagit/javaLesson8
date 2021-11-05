@@ -38,7 +38,6 @@ public class Car {
         public abstract void gob();
     }
 
-
     public static void main(String[] args) {
         String carName = "xiaole";
         System.out.println(carName);

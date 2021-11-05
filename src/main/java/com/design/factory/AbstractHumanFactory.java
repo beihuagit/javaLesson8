@@ -6,5 +6,11 @@ package com.design.factory;
  * @date 2021/7/13 16:47
  * */
 public abstract class AbstractHumanFactory {
+    /**
+     * 工厂抽象方法
+     * @param c
+     * @param <T>
+     * @return
+     */
     public abstract <T extends Human> T createHuman(Class<T> c);
 }

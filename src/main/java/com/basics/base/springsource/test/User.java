@@ -8,6 +8,15 @@ public class User {
 
     private String username;
     private Integer age;
+    private OrderInf order;
+
+    public void setOrder(OrderInf order) {
+        this.order = order;
+    }
+
+    public OrderInf getOrder() {
+        return order;
+    }
 
     public String getUsername() {
         return username;
